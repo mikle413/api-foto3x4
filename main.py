@@ -4,6 +4,7 @@ import numpy as np
 import cv2
 from PIL import Image
 from rembg import remove, new_session
+import os
 
 app = FastAPI()
 
@@ -59,3 +60,8 @@ async def processar_foto(file: UploadFile = File(...)):
         
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 10000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)

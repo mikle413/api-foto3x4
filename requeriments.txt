@@ -1,5 +1,6 @@
 fastapi
 uvicorn
+gunicorn
 python-multipart
 rembg[cpu]
 opencv-python-headless
